@@ -9,3 +9,5 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+// "npm install" para instalar a nome_modules

@@ -9,7 +9,7 @@ export default function HomeScreen({ navigation }) {
     ];
     
     const renderizador = ({item}) => (
-        <View style={styles.itemLista}>{/*                                                                          destino        objeto                                                                             */}
+        <View style={styles.itemLista}>{/*                                                  destino        objeto                                                                             */}
             <TouchableOpacity style={styles.botaoItems} onPress={() => navigation.navigate('Detalhes', {dados: item})}><Text>{item.nome}</Text></TouchableOpacity>
         </View>
     )

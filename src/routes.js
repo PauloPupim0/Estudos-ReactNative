@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from './screens/HomeScreen';
@@ -23,13 +24,14 @@ function StackRoutes() {
 function TabRoutes() {
     return(
         <Tab.Navigator 
-            screenOptions={({ route }) => ({
+            screenOptions={
+                ({ route }) => ({
                 tabBarIcon: ({ color, size }) => {
                     let iconName;
 
-                    if (route.name === 'Home') {
+                    if (route.name === 'HomeTab') {
                         iconName = 'home';
-                    } else if (route.name === 'Perfil'){
+                    } else if (route.name === 'PerfilTab'){
                         iconName = 'person';
                     }
 
@@ -37,14 +39,14 @@ function TabRoutes() {
                 },
                 tabBarActiveTintColor: 'blue',
                 tabBarinactiveTintColor: 'gray',
-            })}
+            })
+            }
         >
             {/* O options aqui, é pra tirar o header da parte do TAB na home (se n ia ficar dois headers, do tab e do stack) */}
-            <Tab.Screen name="Home" component={StackRoutes} options={{ headerShown: false }}/>
-            <Tab.Screen name="Perfil" component={PerfilScreen}/>
+            <Tab.Screen name="HomeTab" component={StackRoutes} options={{tabBarLabel: 'Home',headerShown: false}}/>
+            <Tab.Screen name="PerfilTab" component={PerfilScreen} options={{tabBarLabel: 'Perfil', title: 'Perfil'}}/>
         </Tab.Navigator>
     )
 }
-
 
 export default TabRoutes; //Define o ponto de entrada (qual modo de navegação vai ser executado primeiro no app)

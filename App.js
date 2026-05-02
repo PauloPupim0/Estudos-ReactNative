@@ -10,4 +10,4 @@ export default function App() {
   );
 }
 
-// "npm install" para instalar a nome_modules
+// "npm install" para instalar a node_modules

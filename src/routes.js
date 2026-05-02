@@ -7,7 +7,9 @@ const Stack = createNativeStackNavigator();
 
 export default function StackRoutes() {
     return(
-        <Stack.Navigator>
+        <Stack.Navigator 
+            //screenOptions={{headerShown: false}} //para tirar o cabeçalho de cima da tela
+        >
             <Stack.Screen name="Home" component={HomeScreen}/>
             <Stack.Screen name="Detalhes" component={DetailScreen}/>
         </Stack.Navigator>

@@ -1,7 +1,5 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 
 export default function DetailScreen({ route, navigation }) {
 
@@ -30,6 +28,7 @@ export default function DetailScreen({ route, navigation }) {
         </View>
     );
 }
+
 const styles = StyleSheet.create({
         container: {
             flex: 1,

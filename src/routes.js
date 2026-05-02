@@ -1,9 +1,11 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './screens/HomeScreen';
 import DetailScreen from './screens/DetailScreen';
 
 const Stack = createNativeStackNavigator();
+const Stack = createBottomTabNavigator();
 
 export default function StackRoutes() {
     return(

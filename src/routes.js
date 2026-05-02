@@ -1,13 +1,15 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from './screens/HomeScreen';
 import DetailScreen from './screens/DetailScreen';
+import PerfilScreen from './screens/PerfilScreen';
 
 const Stack = createNativeStackNavigator();
-const Stack = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
-export default function StackRoutes() {
+function StackRoutes() {
     return(
         <Stack.Navigator 
             //screenOptions={{headerShown: false}} //para tirar o cabeçalho de cima da tela
@@ -17,3 +19,32 @@ export default function StackRoutes() {
         </Stack.Navigator>
     )
 }
+
+function TabRoutes() {
+    return(
+        <Tab.Navigator 
+            screenOptions={({ route }) => ({
+                tabBarIcon: ({ color, size }) => {
+                    let iconName;
+
+                    if (route.name === 'Home') {
+                        iconName = 'home';
+                    } else if (route.name === 'Perfil'){
+                        iconName = 'person';
+                    }
+
+                    return <Ionicons name={iconName} size={size} color={color}/>;
+                },
+                tabBarActiveTintColor: 'blue',
+                tabBarinactiveTintColor: 'gray',
+            })}
+        >
+            {/* O options aqui, é pra tirar o header da parte do TAB na home (se n ia ficar dois headers, do tab e do stack) */}
+            <Tab.Screen name="Home" component={StackRoutes} options={{ headerShown: false }}/>
+            <Tab.Screen name="Perfil" component={PerfilScreen}/>
+        </Tab.Navigator>
+    )
+}
+
+
+export default TabRoutes; //Define o ponto de entrada (qual modo de navegação vai ser executado primeiro no app)

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'; //Caso seja necessario usar algum hook do React, como useState ou useEffect
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 export default function DetailScreen({ route, navigation }) {
 
-    const { dados } = route.params;
+    const { dados } = route.params; //Para funcionar precisa do route ali em cima (ao lado do navigation como parametro)
     /*
     const dados = route.params.dados; faz a mesma coisa q o de cima, porem se eu fosse passar mais coisas eu teria q fzr uma linha para cada,
     ex:
